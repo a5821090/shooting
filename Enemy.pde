@@ -21,41 +21,41 @@ move.y = random(0.1,1);
 img = loadImage("enemy.png");
 img2 = loadImage("enemy2.png");
 imageIndex = (int) random(2);
-if (imageIndex == 0) {
-      HP = (int) random(1, 5);
-    } else {
-      HP = (int) random(6, 10);
-    }
+  if (imageIndex == 0) {
+    HP = (int) random(1, 5);
+  } else {
+    HP = (int) random(6, 10);
+  }
 }
+
 void Draw(){
 super.Draw();
 colorMode(HSB);
 fill((HP%10)*25,255,255);
-//fill( col);
- PImage currentImg = (imageIndex == 0) ? img : img2;
- image(currentImg, position.x, position.y, size_x, size_y);
- position.add(move);
-  HPDisp();
- if(position.x < 0|| position.x > width-size_x ){
+PImage currentImg = (imageIndex == 0) ? img : img2;
+image(currentImg, position.x, position.y, size_x, size_y);
+position.add(move);
+HPDisp();
+  if(position.x < 0|| position.x > width-size_x ){
     position.x = constrain(position.x,0 , width - size_x); 
     move.x *= -1;
-   }
-  colorMode(RGB);
+  }
+colorMode(RGB);
 }
-void setColor(int r, int g, int b) {//色を変えるメソッド
-    col = color(r, g, b);
-  }
 
-  // 元の色に戻すメソッド
-  void resetColor() {
-    col = originalColor;
-  }
+//void setColor(int r, int g, int b) {//色を変えるメソッド
+//col = color(r, g, b);
+//}
+
+// 元の色に戻すメソッド
+//void resetColor() {
+//col = originalColor;
+//}
+
 void HPDisp(){
   textSize(18);
   fill(255);
   text("HP:"+HP,position.x,position.y-10);
 }
   
-
-
 }

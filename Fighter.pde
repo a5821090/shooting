@@ -1,7 +1,7 @@
 class Fighter extends DisplayObject{
 int size;
 int moveDirection;
-  PImage img;
+PImage img;
 
 Fighter(){
 super();
@@ -20,15 +20,14 @@ img = loadImage("fighter.png");
 
 void Draw(){
 super.Draw();
- HPDisp();  
+HPDisp();  
 image(img, position.x, position.y, size, 100);
-
-
 }
+
 void HPDisp(){
-  textSize(18);
-  fill(255);
-  text("HP:"+HP,position.x,position.y+100);
+textSize(18);
+fill(255);
+text("HP:"+HP,position.x,position.y+100);
 }
 
 }
